@@ -1,0 +1,7 @@
+env
+venv
+.env
+!env.params
+__pycache__
+*_cache
+db.sqlite3
