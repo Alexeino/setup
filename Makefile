@@ -18,13 +18,23 @@ venv:
 
 runserver: venv/
 	venv/Scripts/python src/manage.py runserver
-	
+
 secret: venv/
 	source venv/Scripts/activate
 	python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+
+migrate: venv/
+	source venv/Scripts/activate
+	venv/Scripts/python src/manage.py migrate
+
+migrations: venv/
+	source venv/Scripts/activate
+	venv/Scripts/python src/manage.py makemigrations
 
 .PHONY: format
 .PHONY: flake8
 .PHONY: clean
 .PHONY: venv
 .PHONY: runserver
+.PHONY: migrate
+.PHONY: migrations
