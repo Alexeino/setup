@@ -18,7 +18,10 @@ venv:
 
 runserver: venv/
 	venv/Scripts/python src/manage.py runserver
-
+	
+secret: venv/
+	source venv/Scripts/activate
+	python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 
 .PHONY: format
 .PHONY: flake8
